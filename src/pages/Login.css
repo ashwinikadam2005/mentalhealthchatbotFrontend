@@ -1,0 +1,40 @@
+.auth-page {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(180deg, #ffffff, #fbfbff);
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input {
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: 1px solid rgba(12, 20, 40, 0.06);
+}
+
+.submit {
+  background: linear-gradient(90deg, #7c5cff, #ff758c);
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.muted {
+  color: #6b7280;
+  font-size: 0.95rem;
+}

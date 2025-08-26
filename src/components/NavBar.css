@@ -1,0 +1,172 @@
+.nav {
+  position: sticky;
+  top: 0;
+  background: transparent;
+  padding: 2px 0;
+  z-index: 40;
+}
+
+/* Inner wrapper */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(224, 247, 247);
+  padding: 15px 1rem;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 1.4rem;
+}
+
+.brand-text {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* Navigation links - default desktop */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #6b7280;
+  padding: 0.45rem 0.7rem;
+  border-radius: 10px;
+}
+
+.nav-links a:hover {
+  color: #0f172a;
+}
+
+/* Buttons */
+.btn {
+  background: linear-gradient(90deg, #7c5cff, #ff758c);
+  color: white;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(124, 92, 255, 0.18);
+  font-weight: 600;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  color: #0f172a;
+  padding: 0.45rem 0.85rem;
+}
+
+/* Hamburger icon - hidden by default */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+.profile-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 0.25rem 0;  /* slightly tighter */
+  z-index: 10;
+  width: 160px;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* no gap to avoid misalignment */
+}
+
+.dropdown a,
+.dropdown button {
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  border: none;
+  color: #111;              /* dark text */
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;   /* ensure padding included */
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-top: 1px solid transparent;  /* default no border */
+}
+
+.dropdown a:first-child {
+  border-top: none;  /* no border on first item */
+}
+
+.dropdown a:hover,
+.dropdown button:hover {
+  background-color: #e2e8f0; /* subtle hover bg */
+  color: #000;
+}
+
+.dropdown button {
+  border-top: 1px solid #e2e8f0;  /* border separating from above */
+}
+
+/* Remove default focus outline but add custom */
+.dropdown a:focus,
+.dropdown button:focus {
+  outline: none;
+  background-color: #cbd5e1;
+  color: #000;
+}
+
+/* ---------------- Mobile View ---------------- */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block; /* show hamburger only in mobile */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px; /* height of navbar */
+    right: 0;
+    background: rgb(224, 247, 247);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    width: 200px;
+    display: none; /* hidden by default */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-links.active {
+    display: flex; /* shown when menuOpen is true */
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    width: 100%;
+    padding: 0.5rem 0.7rem;
+  }
+}

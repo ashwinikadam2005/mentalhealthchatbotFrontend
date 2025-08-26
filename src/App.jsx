@@ -1,4 +1,3 @@
-
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -8,6 +7,10 @@ import Signup from "./pages/Signup";
 import About from "./pages/About";
 import Chatbot from "./pages/Chatbot";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Services from "./pages/Services"; // ✅ new
+import Contact from "./pages/Contact";   // ✅ new
+import Testimonials from "./pages/Testimonials"; // ✅ new
+import FAQSection from "./components/FAQSection";
 
 export default function App() {
   return (
@@ -19,6 +22,9 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/testimonials" element={<Testimonials />} />
           <Route
             path="/chatbot"
             element={
@@ -29,6 +35,8 @@ export default function App() {
           />
         </Routes>
       </main>
+      <FAQSection />   {/* <-- FAQs appear on all pages */}
+
       <Footer />
     </>
   );

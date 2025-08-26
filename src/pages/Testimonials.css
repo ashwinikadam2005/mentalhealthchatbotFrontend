@@ -1,0 +1,28 @@
+.testimonials {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.testimonial-card {
+  background: var(--glass);
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(12, 20, 50, 0.05);
+}
+
+.testimonial-card p {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-card span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}

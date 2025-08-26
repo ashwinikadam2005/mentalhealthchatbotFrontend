@@ -1,32 +1,41 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import "./Signup.css";
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
 
 export default function Signup() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [loading, setLoading] = useState(false);
   const nav = useNavigate();
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/signup", {
+      const res = await fetch(`${API_BASE_URL}/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify(form),
       });
 
       const data = await res.json();
+      setLoading(false);
 
       if (res.ok) {
-        alert(data.message);
+        alert(data.message || "Signup successful!");
         nav("/login");
       } else {
-        alert(data.message);
+        alert(data.message || "Signup failed!");
       }
     } catch (err) {
-      console.error(err);
+      setLoading(false);
+      console.error("Signup error:", err);
       alert("Something went wrong. Please try again.");
     }
   };
@@ -34,32 +43,37 @@ export default function Signup() {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <h2>Create account</h2>
+        <h2>Create Account</h2>
         <form className="form" onSubmit={handleSubmit}>
           <input
             className="input"
-            value={name}
-            onChange={e => setName(e.target.value)}
-            placeholder="Full name"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            placeholder="Full Name"
             required
           />
           <input
             className="input"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            name="email"
+            value={form.email}
+            onChange={handleChange}
             placeholder="Email"
             type="email"
             required
           />
           <input
             className="input"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
+            name="password"
+            value={form.password}
+            onChange={handleChange}
             placeholder="Password"
             type="password"
             required
           />
-          <button className="btn submit" type="submit">Sign up</button>
+          <button className="btn submit" type="submit" disabled={loading}>
+            {loading ? "Signing up..." : "Sign up"}
+          </button>
         </form>
         <p className="muted">
           Already have an account? <Link to="/login">Login</Link>

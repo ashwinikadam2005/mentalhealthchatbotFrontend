@@ -1,0 +1,25 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+      padding-left: 2rem;   /* space on left side */
+  padding-right: 2rem;  /* space on right side */
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #f6f8ff 0%, #ffffff 100%);
+  color: #0f172a; /* text color */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+
+

@@ -1,0 +1,160 @@
+/* 🌸 Section Wrapper */
+.services-wrapper {
+  padding: 3rem 1rem;
+    background: var(--bg1);
+
+  /* background: linear-gradient(135deg, #fce7f3, #ede9fe); */
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.services-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #6b21a8;
+  margin-bottom: 2.5rem;
+}
+
+/* 🌟 Grid Layout */
+.services-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: stretch;
+  margin-bottom: 2rem;
+}
+
+/* 📦 Service Card */
+.service-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.service-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #7e22ce;
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  color: #444;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+/* 🎥 Video Section with Next/Prev */
+.video-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.videos-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 1000px;
+  flex: 1;
+}
+
+.video-card {
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 🎥 Buttons */
+.nav-btn {
+  background: linear-gradient(90deg, #7c5cff, #ff758c);
+  border: none;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(124, 92, 255, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nav-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #6a4de9, #ff5c7b);
+}
+
+/* ✍️ Journal */
+.journal-box {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #ddd;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  resize: none;
+}
+
+.save-btn {
+  background: #9333ea;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.save-btn:hover {
+  background: #7e22ce;
+}
+
+/* 🌞 Motivation */
+.refresh-btn {
+  background: #facc15;
+  color: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.refresh-btn:hover {
+  background: #eab308;
+}
+
+/* 😴 Audio Player */
+audio {
+  margin-top: auto;
+  width: 100%;
+  border-radius: 0.75rem;
+}
