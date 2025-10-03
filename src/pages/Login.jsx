@@ -30,7 +30,12 @@ export default function Login() {
         localStorage.setItem("token", data.token);
         login(data.user);   // update context user state here!
         alert(data.message || "Login successful!");
-        navigate("/");      // redirect after login
+        // Check for admin email to route to admin dashboard
+        if ((email || "").trim().toLowerCase() === "admin@gmail.com") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
       } else {
         alert(data.message || "Invalid email or password");
       }

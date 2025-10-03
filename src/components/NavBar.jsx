@@ -34,21 +34,23 @@ export default function NavBar() {
 
         {/* Links */}
         <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <Link to="/" onClick={closeMenu}>
-            Home
-          </Link>
-          <Link to="/about" onClick={closeMenu}>
-            About
-          </Link>
-          <Link to="/contact" onClick={closeMenu}>
-            Contact
-          </Link>
-          <Link to="/services" onClick={closeMenu}>
-            Services
-          </Link>
-          <Link to="/testimonials" onClick={closeMenu}>
-            Testimonials
-          </Link>
+          {(user && (user.email || "").toLowerCase() === "admin@gmail.com") ? (
+            // Admin navbar
+            <>
+              <Link to="/admin" onClick={closeMenu}>Dashboard</Link>
+              <Link to="/admin/doctors" onClick={closeMenu}>Doctors</Link>
+              <Link to="/admin/add-doctor" onClick={closeMenu}>Add Doctor</Link>
+            </>
+          ) : (
+            // User navbar
+            <>
+              <Link to="/" onClick={closeMenu}>Home</Link>
+              <Link to="/about" onClick={closeMenu}>About</Link>
+              <Link to="/contact" onClick={closeMenu}>Contact</Link>
+              <Link to="/services" onClick={closeMenu}>Services</Link>
+              <Link to="/testimonials" onClick={closeMenu}>Testimonials</Link>
+            </>
+          )}
 
           {user ? (
             <div className="profile-menu">
@@ -60,14 +62,25 @@ export default function NavBar() {
               </div>
               {dropdownOpen && (
                 <div className="dropdown">
-                  <button
-                    onClick={() => {
-                      setDropdownOpen(false);
-                      nav("/settings"); // programmatic navigation
-                    }}
-                  >
-                    Settings
-                  </button>
+                  {(user.email || "").toLowerCase() === "admin@gmail.com" ? (
+                    <button
+                      onClick={() => {
+                        setDropdownOpen(false);
+                        nav("/admin");
+                      }}
+                    >
+                      Admin Home
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        setDropdownOpen(false);
+                        nav("/settings");
+                      }}
+                    >
+                      Settings
+                    </button>
+                  )}
                   <button onClick={handleLogout}>Logout</button>
                 </div>
               )}

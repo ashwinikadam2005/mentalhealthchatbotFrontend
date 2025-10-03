@@ -7,6 +7,8 @@ import Signup from "./pages/Signup";
 import About from "./pages/About";
 import Chatbot from "./pages/Chatbot";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminDashboard from "./pages/AdminDashboard";
+import AddDoctor from "./pages/AddDoctor";
 import Services from "./pages/Services"; // ✅ new
 import Contact from "./pages/Contact";   // ✅ new
 import Testimonials from "./pages/Testimonials"; // ✅ new
@@ -25,6 +27,22 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/testimonials" element={<Testimonials />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/add-doctor"
+            element={
+              <ProtectedRoute>
+                <AddDoctor />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/chatbot"
             element={
